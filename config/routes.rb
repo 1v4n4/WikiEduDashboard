@@ -421,4 +421,8 @@ Rails.application.routes.draw do
   match '/422', to: 'errors#unprocessable', via: :all
   match '/599', to: 'errors#login_error', via: :all
   match '/500', to: 'errors#internal_server_error', via: :all
+
+  # Queue Latency
+  get '/queue_latency/short', to: 'queue_latency#short_latency'
+  get '/queue_latency/medium', to: 'queue_latency#medium_latency'
 end

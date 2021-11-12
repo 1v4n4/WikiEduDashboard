@@ -631,7 +631,24 @@ const API = {
           return rej(obj);
         })
     );
+  },
+
+  getLatency(update_type) {
+    return new Promise((res, rej) =>
+      $.ajax({
+        type: 'GET',
+        url: `/queue_latency/${update_type}`,
+        success(data) {
+          return res(data);
+        }
+      })
+        .fail((obj) => {
+          logErrorMessage(obj);
+          return rej(obj);
+        })
+    );
   }
+
 };
 
 export default API;
